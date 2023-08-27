@@ -4,7 +4,7 @@ from lxml import html
 import send_message
 
 
-def scraping(header):
+def scraping(header,used_links):
     url = "https://www.blogdechollos.com/"
 
     web_content = requests.get(url, headers=header)
@@ -12,7 +12,7 @@ def scraping(header):
     added = ''
     i = 1
 
-    while not added.__contains__('Ayer'):
+    while added.__contains__('Hoy'):
         pattern_product = f"//*[@id='main']/div/div/div[{i}]/div[3]/a/@href"
         url_product = str(parser.xpath(pattern_product))
         pattern_price = f'//*[@id="main"]/div/div/div[{i}]/div[3]/div[2]/div[1]/text()'
@@ -30,7 +30,6 @@ def scraping(header):
                 print('current_price ' + price)
                 print('old_price ' + old_price)
                 print(added)
-                send_message.send_to_whats(amazon_url,price,old_price)
+                # send_message.send_to_whats(amazon_url,price,old_price)
         i = i + 1
-        
-blogdechollos_handler.py
+
