@@ -1,3 +1,4 @@
+import amzn
 import blogdechollos_handler
 import ofertitas_handler
 from utils import read_log
@@ -8,4 +9,5 @@ header = {
 
 used_links = read_log()
 # blogdechollos_handler.scraping(header,used_links)
-ofertitas_handler.scraping(header,used_links)
+# ofertitas_handler.scraping(header,used_links)
+amzn.scraping(header, used_links)
