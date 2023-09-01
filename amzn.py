@@ -35,7 +35,8 @@ def scraping(header, used_links):
         starting = False
         discount = 90
         while not starting:
-            url = get_url(discount,category1, category2)
+            #url = get_url(discount,category1, category2)
+            url = f'https://www.amazon.es/deals?ref_=nav_cs_gb&deals-widget=%257B%2522version%2522%253A1%252C%2522viewIndex%2522%253A0%252C%2522presetId%2522%253A%2522deals-collection-all-deals%2522%252C%2522discountRanges%2522%253A%255B%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252210%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A10%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252220%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A20%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252230%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A30%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252250%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A50%252C%2522to%2522%253Anull%252C%2522selected%2522%253Atrue%257D%250A%255D%252C%2522departments%2522%253A%255B%2522{2454136031}%2522%252C%2522{1703495031}%2522%255D%252C%2522sorting%2522%253A%2522FEATURED%2522%257D'
             starting = get_content(url, header)
             discount = discount - 10
             if discount < 50:
@@ -75,8 +76,10 @@ def scraping(header, used_links):
                     title_product = str(parser.xpath(pattern_title)[0]).strip()
                     product_url = str(parser.xpath(pattern_url)[0])
                     amazon_url = 'https://www.amazon.es' + product_url[:product_url.find('?')]
+                    if amazon_url == 'https://www.amazon.es/Isot%C3%A9rmica-Accesorios-Fiambrera-Termoporciones-Inoxidable/dp/B09TKSBWKN':
+                        print('here')
                     final_product_price = str(parser.xpath(pattern_price)[0])
-                    final_product_price_float = float(final_product_price[:-2].replace(',', '.'))
+                    final_product_price_float = float(final_product_price[:-2].replace('.', '').replace(',', '.'))
                     reduction_price_str = '-' + str(parser.xpath(pattern_reduction_price)[0])[1:-2] + '%'
                     reduction_price = int(str(parser.xpath(pattern_reduction_price)[0])[1:-2])
 
@@ -95,7 +98,7 @@ def scraping(header, used_links):
                     more_elements = False
             if len(most_discount_product) > 0:
                 print(title_product)
-                print(amazon_url)
+                print(most_discount_product[2])
                 print('current_price ' + str(final_product_price_float))
                 print('old_price ' + str(old_price))
                 print('discount ' + str(biggest_discount) + '\n')
@@ -107,11 +110,7 @@ def scraping(header, used_links):
         print('discount'+ str(discount))
         print(category1)
         print(category2)
-    finally:
-        print(link_group_page)
-        print('discount' + str(discount))
-        print(category1)
-        print(category2)
+
 
 
 def get_content(url, header):
@@ -134,4 +133,3 @@ def get_content(url, header):
 #
 # pattern_product = "//*[@id='grid-main-container']/div[3]/div/div[1]/div/div/div/span/div[1]/div/text()"
 # url_product = str(parser.xpath(pattern_product))
-
