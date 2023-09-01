@@ -1,13 +1,11 @@
 import json
-
 import requests
 from lxml import html
+import utils
 from bs4 import BeautifulSoup
 
-import utils
 
-
-def get_url(perc,category1,category2):
+def get_url(perc, category1, category2):
     # https://meyerweb.com/eric/tools/dencoder/
 
     url = ''
@@ -35,7 +33,7 @@ def scraping(header, used_links):
         starting = False
         discount = 90
         while not starting:
-            #url = get_url(discount,category1, category2)
+            # url = get_url(discount,category1, category2)
             url = f'https://www.amazon.es/deals?ref_=nav_cs_gb&deals-widget=%257B%2522version%2522%253A1%252C%2522viewIndex%2522%253A0%252C%2522presetId%2522%253A%2522deals-collection-all-deals%2522%252C%2522discountRanges%2522%253A%255B%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252210%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A10%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252220%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A20%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252230%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A30%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252250%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A50%252C%2522to%2522%253Anull%252C%2522selected%2522%253Atrue%257D%250A%255D%252C%2522departments%2522%253A%255B%2522{2454136031}%2522%252C%2522{1703495031}%2522%255D%252C%2522sorting%2522%253A%2522FEATURED%2522%257D'
             starting = get_content(url, header)
             discount = discount - 10
@@ -76,8 +74,6 @@ def scraping(header, used_links):
                     title_product = str(parser.xpath(pattern_title)[0]).strip()
                     product_url = str(parser.xpath(pattern_url)[0])
                     amazon_url = 'https://www.amazon.es' + product_url[:product_url.find('?')]
-                    if amazon_url == 'https://www.amazon.es/Isot%C3%A9rmica-Accesorios-Fiambrera-Termoporciones-Inoxidable/dp/B09TKSBWKN':
-                        print('here')
                     final_product_price = str(parser.xpath(pattern_price)[0])
                     final_product_price_float = float(final_product_price[:-2].replace('.', '').replace(',', '.'))
                     reduction_price_str = '-' + str(parser.xpath(pattern_reduction_price)[0])[1:-2] + '%'
@@ -89,10 +85,10 @@ def scraping(header, used_links):
                         old_price = round((int(final_product_price_float) * 100) / (100 - reduction_price), 2)
 
                     i = i + 1
-                    if not amazon_url in used_links and reduction_price > biggest_discount:
+                    if amazon_url not in used_links and reduction_price > biggest_discount:
                         biggest_discount = reduction_price
                         most_discount_product = (
-                        reduction_price_str, title_product, amazon_url, final_product_price, old_price)
+                            reduction_price_str, title_product, amazon_url, final_product_price, old_price)
 
                 else:
                     more_elements = False
@@ -107,10 +103,9 @@ def scraping(header, used_links):
     except Exception as e:
         print(str(e))
         print(amazon_url)
-        print('discount'+ str(discount))
+        print('discount' + str(discount))
         print(category1)
         print(category2)
-
 
 
 def get_content(url, header):
