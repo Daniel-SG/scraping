@@ -10,7 +10,7 @@ def get_url(perc, category1, category2):
 
     url = ''
     if perc == 90:
-        url = 'https://www.amazon.es/deals?ref_=nav_cs_gb&deals-widget={%2522version%2522%253A1%252C%2522viewIndex%2522%253A0%252C%2522presetId%2522%253A%2522deals-collection-all-deals%2522%252C%2522discountRanges%2522%253A%255B%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252210%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A10%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252220%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A20%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252230%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A30%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252240%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A40%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252290%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A90%252C%2522to%2522%253Anull%252C%2522selected%2522%253Atrue%257D%250A%255D%252C%2522departments%2522%253A%255B%25226198055031%2522%252C%25221703495031%2522%252C%25226198054031%2522%252C%25222454133031%2522%252C%25221951051031%2522%252C%25226348071031%2522%252C%25222454136031%2522%252C%2522599370031%2522%252C%25226198073031%2522%252C%2522599391031%2522%252C%25225866088031%2522%252C%2522667049031%2522%252C%25223628866031%2522%252C%25221571260031%2522%252C%2522599385031%2522%252C%25223564289031%2522%252C%25221571259031%2522%252C%2522599373031%2522%252C%25223628728031%2522%252C%2522599379031%2522%252C%25223677430031%2522%252C%25226198072031%2522%252C%2522599376031%2522%252C%2522599382031%2522%252C%25226347711031%2522%252C%2522827230031%2522%252C%252212472654031%2522%252C%25224772050031%2522%252C%25222165679031%2522%252C%25222165660031%2522%252C%2522665477031%2522%252C%25222822691031%2522%252C%2522664659031%2522%252C%2522664660031%2522%252C%2522934056031%2522%252C%2522665492031%2522%252C%25223605952031%2522%252C%25225512276031%2522%252C%25225518992031%2522%252C%25225518993031%2522%252C%25225518994031%2522%252C%252212710835031%2522%252C%252210117375031%2522%252C%252210117368031%2522%252C%252210440373031%2522%252C%252210440402031%2522%255D%252C%2522sorting%2522%253A%2522FEATURED%2522%257D'
+        url = f'https://www.amazon.es/deals?ref_=nav_cs_gb&deals-widget=%257B%2522version%2522%253A1%252C%2522viewIndex%2522%253A0%252C%2522presetId%2522%253A%2522deals-collection-all-deals%2522%252C%2522discountRanges%2522%253A%255B%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252210%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A10%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252220%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A20%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252230%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A30%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252290%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A90%252C%2522to%2522%253Anull%252C%2522selected%2522%253Atrue%257D%250A%255D%252C%2522departments%2522%253A%255B%2522{category1}2522%252C%2522{category2}%2522%255D%252C%2522sorting%2522%253A%2522FEATURED%2522%257D'
     elif perc == 80:
         url = f'https://www.amazon.es/deals?ref_=nav_cs_gb&deals-widget=%257B%2522version%2522%253A1%252C%2522viewIndex%2522%253A0%252C%2522presetId%2522%253A%2522deals-collection-all-deals%2522%252C%2522discountRanges%2522%253A%255B%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252210%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A10%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252220%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A20%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252230%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A30%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252280%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A80%252C%2522to%2522%253Anull%252C%2522selected%2522%253Atrue%257D%250A%255D%252C%2522departments%2522%253A%255B%2522{category1}%2522%252C%2522{category2}%2522%255D%252C%2522sorting%2522%253A%2522FEATURED%2522%257D'
     elif perc == 70:
@@ -33,8 +33,8 @@ def scraping(header, used_links):
         starting = False
         discount = 90
         while not starting:
-            # url = get_url(discount,category1, category2)
-            url = f'https://www.amazon.es/deals?ref_=nav_cs_gb&deals-widget=%257B%2522version%2522%253A1%252C%2522viewIndex%2522%253A0%252C%2522presetId%2522%253A%2522deals-collection-all-deals%2522%252C%2522discountRanges%2522%253A%255B%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252210%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A10%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252220%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A20%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252230%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A30%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252250%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A50%252C%2522to%2522%253Anull%252C%2522selected%2522%253Atrue%257D%250A%255D%252C%2522departments%2522%253A%255B%2522{2454136031}%2522%252C%2522{1703495031}%2522%255D%252C%2522sorting%2522%253A%2522FEATURED%2522%257D'
+            url = get_url(discount,category1, category2)
+            # url = f'https://www.amazon.es/deals?ref_=nav_cs_gb&deals-widget=%257B%2522version%2522%253A1%252C%2522viewIndex%2522%253A0%252C%2522presetId%2522%253A%2522deals-collection-all-deals%2522%252C%2522discountRanges%2522%253A%255B%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252210%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A10%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252220%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A20%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252230%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A30%252C%2522to%2522%253Anull%252C%2522selected%2522%253Afalse%257D%252C%250A%257B%2522sectionText%2522%253A%2522Descuento%2522%252C%2522optionText%2522%253A%252250%2525%2520de%2520descuento%2520o%2520m%25C3%25A1s%2522%252C%2522from%2522%253A50%252C%2522to%2522%253Anull%252C%2522selected%2522%253Atrue%257D%250A%255D%252C%2522departments%2522%253A%255B%2522{2454136031}%2522%252C%2522{1703495031}%2522%255D%252C%2522sorting%2522%253A%2522FEATURED%2522%257D'
             starting = get_content(url, header)
             discount = discount - 10
             if discount < 50:
@@ -46,11 +46,10 @@ def scraping(header, used_links):
         for category in starting['entities']:
             if category['entity']['details']['entity']['title']:
                 category_title = category['entity']['details']['entity']['title']
-                if category['entity']['badge']['entity']['label']['content']['fragments'][0]['text'] == 'Hasta un -':
-                    category_discount = category['entity']['badge']['entity']['label']['content']['fragments'][1][
-                        'text']
-                    url = "https://www.amazon.es/deal/" + category['entity']['id']
-                    category_page_list.append((category_discount, url, category_title))
+                # if category['entity']['badge']['entity']['label']['content']['fragments'][0]['text'] == 'Hasta un -':
+                category_discount = category['entity']['badge']['entity']['label']['content']['fragments'][1]['text']
+                url = "https://www.amazon.es/deal/" + category['entity']['id']
+                category_page_list.append((category_discount, url, category_title))
 
         sorted_category_page_list = sorted(category_page_list, key=lambda discount: discount[0], reverse=True)
 
@@ -93,13 +92,14 @@ def scraping(header, used_links):
                 else:
                     more_elements = False
             if len(most_discount_product) > 0:
-                print(title_product)
-                print(most_discount_product[2])
-                print('current_price ' + str(final_product_price_float))
-                print('old_price ' + str(old_price))
-                print('discount ' + str(biggest_discount) + '\n')
+                print('title: ' + str(most_discount_product[1]))
+                print('url: ' + str(most_discount_product[2]))
+                print('current_price ' + str(most_discount_product[3]))
+                print('old_price ' + str(most_discount_product[4]))
+                print('discount ' + str(most_discount_product[0] + '\n'))
                 # send_message.send_to_whats(amazon_url, price, 0)
                 utils.write_log(most_discount_product[2])
+                
     except Exception as e:
         print(str(e))
         print(amazon_url)
