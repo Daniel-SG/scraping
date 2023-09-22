@@ -11,8 +11,8 @@ import utils
 
 header = utils.get_header()
 
-url = "https://www.amazon.es/AmazonBasics-Perchas-terciopelo-trajes-Paquete/dp/B00FXNAAW2"
-
+# url = "https://www.amazon.es/AmazonBasics-Perchas-terciopelo-trajes-Paquete/dp/B00FXNAAW2"
+url = "https://www.marca.com"
 # METODO POR ID
 # web_content = requests.get(url, headers=header)
 # parser = html.fromstring(web_content.text)
@@ -34,7 +34,11 @@ url = "https://www.amazon.es/AmazonBasics-Perchas-terciopelo-trajes-Paquete/dp/B
 # title = str(parser.xpath(pattern)[0])
 
 # METODO BEAUTILSOUP
-# web_content = requests.get(url, headers=header)
-# soup = BeautifulSoup(web_content.text)
-# contenedor_preguntas = soup.find(id="questions")
-# lista_preguntas = contenedor_preguntas.find('div', class_="question_summary")
+web_content = requests.get(url, headers=header)
+soup = BeautifulSoup(web_content.text, "html.parser")
+# print title
+# print(soup.title.text)
+# print all links in a web
+# for link in soup.find_all('a'):
+    # print(link.get('href'))
+
