@@ -49,6 +49,7 @@ url = "https://www.amazon.es/JUMPER-Ordenador-port%C3%A1til-Altavoces-Bluetooth/
 # soup.select('.some_class') elements containing class='some_class'
 # soup.select('div span') any elements named span within a div element
 # soup.select('div > span') any elements named span directly within a div element with nothing in between
+# soup.find_all("div", attrs={"class": 'a-section octopus-dlp-asin-section'})
 #image = requests.get("image_url")
 # print all links in a web
 # for link in soup.find_all('a'):
