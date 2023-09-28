@@ -1,7 +1,6 @@
-import amz_v1
-import amzn
-import blogdechollos_handler
-import ofertitas_handler
+from operator import itemgetter
+
+import amzn_partes
 from utils import read_log
 
 header = {
@@ -9,7 +8,8 @@ header = {
 }
 
 used_links = read_log()
-#blogdechollos_handler.scraping(header, used_links)
-#ofertitas_handler.scraping(header,used_links)
-#amzn.scraping(header, used_links)
-amz_v1.scraping(header,used_links)
+# blogdechollos_handler.scraping(header, used_links)
+# ofertitas_handler.scraping(header,used_links)
+# amz_v1.scraping(header, used_links)
+amzn_partes.scraping(header, used_links)
+
