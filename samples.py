@@ -57,13 +57,16 @@ url = "https://www.amazon.es/JUMPER-Ordenador-port%C3%A1til-Altavoces-Bluetooth/
 
 # SELENIUM
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
-#normal case:
-browser = webdriver.Firefox()
-#si falla por geock driver, seguir passos:
+#si falla por geock driver, seguir pasos:
+# ejecutar pip install --upgrade selenium
+# o bien:
 #https://stackoverflow.com/questions/40208051/selenium-using-python-geckodriver-executable-needs-to-be-in-path
 
-browser.get('http://books.toscrape.com/')
-a = browser.find_element_by_css_selector('li.col-xs-6:nth-child(1) > article:nth-child(1) > div:nth-child(4)')
+driver.get('https://www.amazon.es/deal/4ad79925/')
+a = driver.find_element(By.CLASS_NAME, "a-list-item")
+# a = browser.find_element_by_css_selector('li.col-xs-6:nth-child(1) > article:nth-child(1) > div:nth-child(4)')
 #a.click() #simulates a click on that element
-browser.quit()
+
+driver.quit()
