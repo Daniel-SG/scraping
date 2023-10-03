@@ -6,7 +6,7 @@ import amz_v1
 import utils
 from bs4 import BeautifulSoup
 
-from test import soup_get_title
+from amzn_selenium import amazn_scrap_selenium
 
 
 def get_url(perc, category1, category2):
@@ -60,9 +60,9 @@ def scraping(header, used_links):
 
         # Take the 5 groups with most discount
         for category_page in sorted_category_page_list[:2]:
-
             link_group_page = category_page[1]
-            amz_v1.scraping(header,used_links,link_group_page)
+            print(link_group_page)
+            amazn_scrap_selenium(link_group_page)
 
             # send_message.send_to_whats(amazon_url, price, 0)
             # utils.write_log(most_discount_product[1])

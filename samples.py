@@ -63,10 +63,10 @@ from selenium.webdriver.common.by import By
 # ejecutar pip install --upgrade selenium
 # o bien:
 #https://stackoverflow.com/questions/40208051/selenium-using-python-geckodriver-executable-needs-to-be-in-path
-
+driver = webdriver.Firefox()
 driver.get('https://www.amazon.es/deal/4ad79925/')
-a = driver.find_element(By.CLASS_NAME, "a-list-item")
+product = driver.find_elements(By.CLASS_NAME, "a-list-item")
+product.get_attribute('href')
 # a = browser.find_element_by_css_selector('li.col-xs-6:nth-child(1) > article:nth-child(1) > div:nth-child(4)')
 #a.click() #simulates a click on that element
-
 driver.quit()
