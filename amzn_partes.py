@@ -64,6 +64,7 @@ def scraping(header, used_links):
             print(link_group_page)
             amazn_scrap_selenium(link_group_page)
 
+
             # send_message.send_to_whats(amazon_url, price, 0)
             # utils.write_log(most_discount_product[1])
 
