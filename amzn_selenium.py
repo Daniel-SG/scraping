@@ -30,3 +30,4 @@ def amazn_scrap_selenium(url):
     sorted_products = sorted(products, key=lambda discount: discount[0], reverse=True)
     print(sorted_products)
 
+
