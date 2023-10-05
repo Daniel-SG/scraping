@@ -2,16 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-def amazn_scrap_selenium(url):
-    # url = 'https://www.amazon.es/deal/17ce50b2'
+def product_set(browser):
     products = []
-    print(url)
-    browser = webdriver.Firefox()
-    browser.get(url)
-    cookies = browser.find_element(By.CSS_SELECTOR, '#sp-cc-accept')
-    cookies.click()
-
-    # base = browser.find_element_by_class_name('a-section octopus-dlp-asin-section')
     products_list = browser.find_elements(By.CLASS_NAME, "a-list-item")
 
     for product in products_list:
@@ -31,3 +23,36 @@ def amazn_scrap_selenium(url):
     print(sorted_products)
 
 
+def specific_product(driver, base):
+    title = driver.find_element(By.ID, "title")
+    print(title)
+    base = driver.find_element(By.CLASS_NAME, "a-offscreen")
+    precio_entero = base.text.split('\n')
+    descuento = precio_entero[0]
+    descuento_sin_simbolo = descuento.replace('%', '')
+    precio_actual = precio_entero[1] + ',' + precio_entero[2]
+    print(descuento)
+    print(precio_actual)
+
+    driver.quit()
+
+def amazn_scrap_selenium(url):
+    url = 'https://www.amazon.es/AmazonBasics-S%C3%A1banas-Ajustables-190-Oscuro/dp/B00Q4TMEHS'
+
+    browser = webdriver.Firefox()
+    browser.get(url)
+    cookies = browser.find_element(By.CSS_SELECTOR, '#sp-cc-accept')
+    cookies.click()
+
+    try:
+        base = browser.find_element(By.CLASS_NAME, 'a-section.a-spacing-none.aok-align-center')
+
+
+    except Exception as e:
+        print(e)
+
+    if base:
+        print('see')
+    else:
+        print('noo')
+    browser.quit()
