@@ -23,7 +23,7 @@ def product_set(browser):
     print(sorted_products)
 
 
-def specific_product(driver, base):
+def specific_product(driver):
     title = driver.find_element(By.ID, "title")
     print(title)
     base = driver.find_element(By.CLASS_NAME, "a-offscreen")
@@ -36,8 +36,9 @@ def specific_product(driver, base):
 
     driver.quit()
 
+
 def amazn_scrap_selenium(url):
-    url = 'https://www.amazon.es/AmazonBasics-S%C3%A1banas-Ajustables-190-Oscuro/dp/B00Q4TMEHS'
+    url = 'https://www.amazon.es/deal/dd20fde3?'
 
     browser = webdriver.Firefox()
     browser.get(url)
@@ -45,14 +46,13 @@ def amazn_scrap_selenium(url):
     cookies.click()
 
     try:
+        # Si es la pagina de un producto concreto, la llamada no fallara
         base = browser.find_element(By.CLASS_NAME, 'a-section.a-spacing-none.aok-align-center')
+        specific_product(browser)
 
 
     except Exception as e:
-        print(e)
+        # Si salta la excepcion es porque es una pagina que contiene varios productos
+        product_set(browser)
 
-    if base:
-        print('see')
-    else:
-        print('noo')
-    browser.quit()
+
