@@ -1,6 +1,7 @@
 from operator import itemgetter
 
 import amzn_partes
+import amzn_selenium
 from utils import read_log
 
 header = {
@@ -11,5 +12,6 @@ used_links = read_log()
 # blogdechollos_handler.scraping(header, used_links)
 # ofertitas_handler.scraping(header,used_links)
 # amz_v1.scraping(header, used_links)
-amzn_partes.scraping(header, used_links)
+amzn_partes.scraping(used_links)
+
 

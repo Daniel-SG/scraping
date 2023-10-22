@@ -1,17 +1,21 @@
+from time import sleep
+
 import httplib2
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
 from oauth2client.tools import run_flow
 from googleapiclient import discovery
 
+
 # https://www.youtube.com/watch?v=to461lvKMqY
 # Start the OAuth flow to retrieve credentials
 def authorize_credentials():
-    CLIENT_SECRET = 'client_secret.json'
+    CLIENT_SECRET = 'blog/client_secrets.json'
     SCOPE = 'https://www.googleapis.com/auth/blogger'
     STORAGE = Storage('credentials.storage')
     # Fetch credentials from storage
     credentials = STORAGE.get()
+
     # If the credentials doesn't exist in the storage location then run the flow
     if credentials is None or credentials.invalid:
         flow = flow_from_clientsecrets(CLIENT_SECRET, scope=SCOPE)
@@ -38,20 +42,21 @@ def postToBlogger(payload):
     return insert
 
 
-def buildHtml():
-    html = '<h1>Hello world</h1>'
+def buildHtml(currentPrice, oldPrice):
+    html = f'Antes: <h1>{oldPrice}</h1> \n Ahora: <h1>{currentPrice}</h1>'
     return html
 
 
-title = "Testing post 2"
+def format_post(title, precio_actual, precio_anterior, descuento, foto_url, descripcion, url):
+    title_post = title
 
-# print(htmlData)
+    customMetaData = "This is meta data"
+    payload = {
+        "content": buildHtml(precio_actual, precio_anterior),
+        "title": title_post,
+        'labels': ['label1', 'label2'],
+        'customMetaData': customMetaData
+    }
+    postToBlogger(payload)
+    sleep(10)
 
-customMetaData = "This is meta data"
-payload = {
-    "content": buildHtml(),
-    "title": title,
-    'labels': ['label1', 'label2'],
-    'customMetaData': customMetaData
-}
-postToBlogger(payload)
