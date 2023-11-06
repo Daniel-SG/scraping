@@ -42,8 +42,12 @@ def postToBlogger(payload):
     return insert
 
 
-def buildHtml(currentPrice, oldPrice):
-    html = f'Antes: <h1>{oldPrice}</h1> \n Ahora: <h1>{currentPrice}</h1>'
+def buildHtml(currentPrice, oldPrice, descuento, descripcion, url):
+    html = f'Antes: <h1>{oldPrice}</h1>' \
+           f' \n Ahora: <h1>{currentPrice}</h1> ' \
+           f' \n Descuento:  <h2> {descuento}</h2> ' \
+           f' \n Descripcion: <h2> {descripcion}</h2>' \
+           f' \n url: <h2>{url} </h2>'
     return html
 
 
@@ -52,7 +56,7 @@ def format_post(title, precio_actual, precio_anterior, descuento, foto_url, desc
 
     customMetaData = "This is meta data"
     payload = {
-        "content": buildHtml(precio_actual, precio_anterior),
+        "content": buildHtml(precio_actual, precio_anterior, descuento, descripcion, url),
         "title": title_post,
         'labels': ['label1', 'label2'],
         'customMetaData': customMetaData

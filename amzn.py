@@ -46,10 +46,11 @@ def scraping(header, used_links):
         for category in starting['entities']:
             if category['entity']['details']['entity']['title']:
                 category_title = category['entity']['details']['entity']['title']
-                # if category['entity']['badge']['entity']['label']['content']['fragments'][0]['text'] == 'Hasta un -':
-                category_discount = category['entity']['badge']['entity']['label']['content']['fragments'][1]['text']
-                url = "https://www.amazon.es/deal/" + category['entity']['id']
-                category_page_list.append((category_discount, url, category_title))
+                if category['entity']['badge']['entity']['label']['content']['fragments'][0]['text'] == 'Hasta un -':
+                    category_discount = category['entity']['badge']['entity']['label']['content']['fragments'][1][
+                        'text']
+                    url = "https://www.amazon.es/deal/" + category['entity']['id']
+                    category_page_list.append((category_discount, url, category_title))
 
         sorted_category_page_list = sorted(category_page_list, key=lambda discount: discount[0], reverse=True)
 
@@ -95,8 +96,8 @@ def scraping(header, used_links):
                 print('discount ' + discount_percentage + '\n')
 
                 # send_message.send_to_whats(amazon_url, price, 0)
-                utils.write_log(most_discount_product[1])
-
+                utils.write_log(most_discount_product[2])
+                
     except Exception as e:
         print(str(e))
         print(amazon_url)

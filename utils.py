@@ -7,8 +7,8 @@ import requests
 
 # 'Alimentacion_bebidas' 6198072031
 # Limpieza 2165679031
-# Audio y video portatil
-# Auriculares equipo de audio
+# Audio y video portatil 665477031
+# Auriculares equipo de audio 934056031
 # Bebe 1703495031
 # Belleza 6198055031
 # Bricolaje 2454133031
@@ -25,12 +25,27 @@ import requests
 # Fotografia 4772050031
 # Grandes electrodomesticos 664660031
 # Hogar y cocina 12710835031
+# iluminacion 3564289031
+# Industria, empresas y ciencia 5866088031
+# Informática 667049031
+# Instrumentos musicales 3628866031
+# Jardín 1571260031
+# Jardín 1571259031
+# Joyería para hombre 10440402031
+# Joyería para mujer 599385031
+# Juguetes y juegos 599364031
+# Libros 5512276031
+# Moda 5518992031
+# Moda Bebé 5518994031
+# Moda Niña 10440373031
 
-categories = {1: 6198072031, 2: 2165679031, 3: 665477031, 4: 934056031, 5: 1703495031, 6: 6198055031, 7: 2454133031,
-              8: 599373031,
-              9: 6347711031, 10: 3605952031, 11: 1951051031, 12: 6348071031, 13: 665492031, 14: 2454136031,
-              15: 599370031,
-              16: 827230031, 17: 599391031, 18: 4772050031, 19: 664660031, 20: 12710835031}
+
+categories = [6198072031, 665477031, 1703495031, 6198055031, 2454133031]
+#, 4: 934056031, 5: 1703495031, 6: 6198055031, 7: 2454133031,
+#              8: 599373031,
+#              9: 6347711031, 10: 3605952031, 11: 1951051031, 12: 6348071031, 13: 665492031, 14: 2454136031,
+#              15: 599370031,
+#              16: 827230031, 17: 599391031, 18: 4772050031, 19: 664660031, 20: 12710835031}
 
 header = {
     "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.80 Chrome/71.0.3578.80 Safari/537.36",

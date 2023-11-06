@@ -22,7 +22,7 @@ def product_set(driver):
 
     driver.quit()
     sorted_products = sorted(products, key=lambda discount: discount[0], reverse=True)
-    if sorted_products[0][2]:
+    if sorted_products and sorted_products[0][2]:
         specific_product(driver, sorted_products[0])
 
 
@@ -77,6 +77,7 @@ def amazn_scrap_selenium(url):
     if no_offer and no_offer.text == 'Esta oferta no esta disponible en este momento pero puedes encontrar ofertas disponibles ahora en nuestra pagina de Ofertas.':
         print('no offers')
         driver.quit()
+        return None
     else:
 
         try:

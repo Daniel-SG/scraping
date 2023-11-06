@@ -29,15 +29,16 @@ def get_currentPrice(driver):
 
 def get_precio_anterior(driver):
     try:
-        precio_anterior_arr = driver.find_elements(By.CLASS_NAME, "a-price.a-text-price")
-        if len(precio_anterior_arr)>2:
-            precio_anterior = precio_anterior_arr[3]
-        else:
-            precio_anterior = precio_anterior_arr[0]
+        #precio_anterior_arr = driver.find_elements(By.CLASS_NAME, "a-price.a-text-price")
+        #if len(precio_anterior_arr)>2:
+        #    precio_anterior = precio_anterior_arr[3]
+        #else:
+        #    precio_anterior = precio_anterior_arr[0]
+        precio_anterior = driver.find_elements(By.CLASS_NAME, "a-size-small.a-color-secondary.aok-align-center.basisPrice")[0]
     except Exception as e:
         print(e)
 
-    return precio_anterior.text
+    return precio_anterior.text.replace('Precio anterior: ','')
 
 
 def get_descuento(driver):
