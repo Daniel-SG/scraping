@@ -42,12 +42,27 @@ def postToBlogger(payload):
     return insert
 
 
-def buildHtml(currentPrice, oldPrice, descuento, descripcion, url):
-    html = f'Antes: <h1>{oldPrice}</h1>' \
-           f' \n Ahora: <h1>{currentPrice}</h1> ' \
-           f' \n Descuento:  <h2> {descuento}</h2> ' \
-           f' \n Descripcion: <h2> {descripcion}</h2>' \
-           f' \n url: <h2>{url} </h2>'
+def buildHtml(title, precio_actual, precio_anterior, descuento, foto_url,descripcion, url):
+    descripcion = str(descripcion).replace('\n', '<br>')
+    html = f"""
+    
+     
+<body>
+    <div class="product" style="background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 10px; margin: 20px auto; padding: 20px; max-width: 400px;">
+        <img src="{foto_url}" alt="Product Image" style="max-width: 100%; border-radius: 5px;">
+        <h2 class="product-title" style="font-size: 24px; color: #333; margin: 10px 0;">{title}</h2>
+        <p class="product-price" style="font-size: 20px; color: #d10000;">Current Price: {precio_actual}</p>
+        <p class="product-old-price" style="font-size: 16px; color: #777; text-decoration: line-through;">Old Price: {precio_anterior}</p>
+        <p class="product-discount" style="font-size: 18px; color: #009900; font-weight: bold;">Descuento: {descuento}</p>
+        <p class="product-description" style="font-size: 16px; color: #444; margin-top: 20px;"><b>Descripción:</b><br> {descripcion}</p>
+        <a class="buy-button" href="{url}" target="_blank" style="display: inline-block; background-color: #ff9900; color: #fff; padding: 10px 20px; font-size: 18px; text-decoration: none; border-radius: 5px; margin-top: 20px; transition: background-color 0.3s;">Buy on Amazon</a>
+    </div>
+</body>
+</html>
+
+             
+    """
+
     return html
 
 
@@ -56,7 +71,7 @@ def format_post(title, precio_actual, precio_anterior, descuento, foto_url, desc
 
     customMetaData = "This is meta data"
     payload = {
-        "content": buildHtml(precio_actual, precio_anterior, descuento, descripcion, url),
+        "content": buildHtml(title, precio_actual, precio_anterior, descuento, foto_url,descripcion, url),
         "title": title_post,
         'labels': ['label1', 'label2'],
         'customMetaData': customMetaData

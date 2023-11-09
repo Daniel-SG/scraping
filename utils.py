@@ -39,8 +39,10 @@ import requests
 # Moda Bebé 5518994031
 # Moda Niña 10440373031
 
+categories = {6198072031:'Alimentacion_bebidas', 665477031:'Audio y video portatil',
+              1703495031:'Bebe', 6198055031:'Belleza', 2454133031:'Bricolaje',
+              6347711031:'Cerveza'}
 
-categories = [6198072031, 665477031, 1703495031, 6198055031, 2454133031]
 #, 4: 934056031, 5: 1703495031, 6: 6198055031, 7: 2454133031,
 #              8: 599373031,
 #              9: 6347711031, 10: 3605952031, 11: 1951051031, 12: 6348071031, 13: 665492031, 14: 2454136031,
@@ -70,8 +72,8 @@ def read_log():
 
 
 def get_amazon_categories():
-    num = random.randrange(1, len(categories))
-    return categories[num]
+    num, name = random.choice(list(categories.items()))
+    return num, name
 
 
 def get_data_product(amazon_url, header):

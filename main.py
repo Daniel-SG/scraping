@@ -2,16 +2,20 @@ from operator import itemgetter
 
 import amzn_partes
 import amzn_selenium
+from blog.insert_blog import format_post
 from utils import read_log
 
-header = {
-    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.80 Chrome/71.0.3578.80 Safari/537.36",
-}
-
 used_links = read_log()
-# blogdechollos_handler.scraping(header, used_links)
-# ofertitas_handler.scraping(header,used_links)
-# amz_v1.scraping(header, used_links)
+
 amzn_partes.scraping(used_links)
+
+title='esto es un titulo'
+precio_actual = 10
+precio_anterior = 20
+descuento = '50%'
+foto_url = 'https://phantom-marca.unidadeditorial.es/0dc642a404bc4b913a8108ba62041e33/resize/660/f/webp/assets/multimedia/imagenes/2023/11/09/16995642859044.jpg'
+descripcion='esto es una descripcion'
+url='www.google.es'
+#format_post(title, precio_actual, precio_anterior, descuento, foto_url, descripcion, url)
 
 

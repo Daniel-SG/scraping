@@ -16,8 +16,9 @@ def get_url(category1):
 def scraping(used_links):
     try:
 
-        category1 = utils.get_amazon_categories()
-        url = get_url(category1)
+        num, name = utils.get_amazon_categories()
+        url = get_url(num)
+        print(f'Looking for the best offers in: {name}')
 
         amazon_scraper = AmazonScraper(url, is_headless=True, browser='chrome', output_file='test.json')
 
