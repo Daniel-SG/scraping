@@ -64,8 +64,8 @@ def get_content(header):
                             if utils_botize.is_valid(url_product, deal_price, old_price, discount) \
                                     and url_product not in anteriores_url_anadidas:
 
-                                query = f"INSERT INTO productos VALUES ('','{url_product}','{deal_price}','{old_price}','{discount}','{date.today()}','{cat_name}',0)"
-                                # print(query)
+                                query = f"INSERT INTO productos VALUES ('','{url_product}','{deal_price}','{old_price}','{discount}','{date.today()}','{cat_name}',0, 0)"
+                                print(query)
                                 print(url_product, deal_price, old_price, discount)
                                 anteriores_url_anadidas.append(url_product)
                                 utils_botize.connectDB(query, 'w')
